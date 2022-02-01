@@ -1,5 +1,4 @@
 import 'package:cseqr/create-export.dart';
-import 'package:cseqr/qr-view-examp.dart';
 import 'package:cseqr/scan.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,7 @@ class Home extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) {
-                        return QRViewExample();
+                        return ScanQR();
                       },
                     ),
                   );
