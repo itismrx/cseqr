@@ -1,7 +1,7 @@
-import 'package:cseqr/home.dart';
+import 'package:cseqr/new-screen/home-screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
 }
 
@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
       title: 'Create Scan Export QR',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Home(),
+          primarySwatch: Colors.blue,
+          iconTheme: IconThemeData(color: Colors.white)),
+      home: HomeScreen(),
     );
   }
 }
