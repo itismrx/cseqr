@@ -8,6 +8,18 @@ class HomeScreen extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     const double HEIGHT = 110;
     return Scaffold(
+      appBar: AppBar(
+        title: Container(
+          child: Image.asset(
+            'assets/logo.png',
+            width: 70,
+            height: 70,
+          ),
+        ),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0,
+        centerTitle: true,
+      ),
       body: Container(
         height: size.height,
         child: Stack(

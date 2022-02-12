@@ -18,6 +18,7 @@ class _ScanScreenState extends State<ScanScreen> {
   bool isFlashLightOn = false;
   bool isCameraPaused = false;
   bool showStatus = false;
+  String tmpQrValue = '';
   bool? canVibrate;
 
   @override
@@ -47,20 +48,30 @@ class _ScanScreenState extends State<ScanScreen> {
     controller.scannedDataStream.listen((scanData) async {
       setState(() {
         result = scanData;
-        showStatus = true;
+        // showStatus = true;
       });
       // TODO: CHECK IF THE SCANNED DATA IS VALID AGAINST THE DATA FROM THE SERVERSIDE
-      await Future.delayed(Duration(seconds: 1), () {
+
+      if (tmpQrValue.isEmpty) {
+        //tmpQrValue = result!.code!;
+      }
+      if (tmpQrValue != result!.code!) {
+        if (canVibrate!) {
+          Vibrate.vibrate();
+        } else {
+          ScaffoldMessenger.of(context)
+              .showSnackBar(SnackBar(content: Text("Couldn't Vibrate!!")));
+        }
+        tmpQrValue = result!.code!;
+        setState(() {
+          showStatus = true;
+        });
+      }
+      await Future.delayed(Duration(seconds: 3), () {
         setState(() {
           showStatus = false;
         });
       });
-      if (canVibrate!) {
-        Vibrate.vibrate();
-      } else {
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Couldn't Vibrate!!")));
-      }
     });
   }
 
@@ -97,8 +108,8 @@ class _ScanScreenState extends State<ScanScreen> {
           ),
           if (showStatus)
             Positioned(
-              right: 10,
-              top: 30,
+              bottom: 170,
+              left: MediaQuery.of(context).size.width * 0.32,
               child: Container(
                   width: 120,
                   height: 45,
@@ -143,17 +154,36 @@ class _ScanScreenState extends State<ScanScreen> {
                   Navigator.of(context).pop();
                 },
               )),
+          Positioned(
+              top: 30,
+              right: 20,
+              child: IconButton(
+                icon: Icon(
+                  Icons.replay,
+                  size: 20,
+                ),
+                onPressed: () {
+                  setState(() {
+                    tmpQrValue = '##';
+                  });
+                  print('\n******\n${tmpQrValue}\n****');
+                },
+              )),
           if (result != null)
-            Positioned(
-              bottom: 50,
+            Align(
+              alignment: Alignment.bottomCenter,
               child: Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: Colors.white,
-                  ),
-                  height: 40,
-                  child: Text(result!.code!)),
+                margin:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25),
+                  color: Colors.white,
+                ),
+                height: 40,
+                child: SelectableText(result!.code!),
+              ),
+              // child: Text(result!.code!)),
             )
           else
             const Text('No Code'),
