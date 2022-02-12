@@ -89,7 +89,7 @@ class _GenerateScreenState extends State<GenerateScreen> {
                           size: 230,
                           gapless: false,
                           backgroundColor: Colors.white,
-                          foregroundColor: Colors.blue,
+                          foregroundColor: Colors.black,
                           errorStateBuilder: (context, err) {
                             return Text('Oh Something went wrong! Try agian');
                           },

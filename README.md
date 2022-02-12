@@ -1,16 +1,34 @@
-# cseqr
+#Scaniee
+![Scaniee](assets/logo.png "Scaniee")
 
-A new Flutter project.
+**Scaniee** is QR code *Scanner* & *Generator* app. It is build entirly using *Flutter*. 
 
-## Getting Started
+##Features
+* [x]  Scan QR Code
+    ▶️ Resume & Pause Scanning.
+    🔦 Turn on & of Flash light.
+    📸 Flip Camera.  
+* [x]  Generate QR Code
+* [x]  Export QR Code
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Usage
+### ⬇️Download
+Download the apk from [this](www.googledrive.com/kkd "this") link.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### 🏃Run 
+```bash
+git clone www.github.com/itismrx/cseqr.git
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+cd cseqr
+
+flutter run
+```
+## 📷️Screenshot
+|Home Screen|Genearte Screen|Export QR|
+|--|--|----|
+|![](screenshot/home-screen.jpg)|![](screenshot/generate-screen.jpg)|![](screenshot/save-image-screen.jpg)|
+
+|Scan Screen|Generated QR Code|
+|---|---|
+|![](screenshot/scan-screen.jpg)|![](screenshot/generated-qr-image.jpg)|
