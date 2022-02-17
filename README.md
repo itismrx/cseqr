@@ -5,9 +5,9 @@
 
 ## Features
 * [x]  Scan QR Code
-    ▶️ Resume & Pause Scanning.
-    🔦 Turn on & of Flash light.
-    📸 Flip Camera.  
+  * [ ]  ▶️ Resume & Pause Scanning.
+  * [ ] 🔦 Turn on & of Flash light.
+  * [ ] 📸 Flip Camera.  <br>
 * [x]  Generate QR Code
 * [x]  Export QR Code
 
